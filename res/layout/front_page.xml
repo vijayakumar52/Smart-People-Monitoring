@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android1="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back2" >
+   
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView2"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="What do you want to do when the App detects crowd?"
+        android:textColor="#000000"
+        android:textSize="20dp" />
+
+    <RadioGroup
+        android1:id="@+id/radioGroup1"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_below="@+id/textView1"
+        android1:layout_marginLeft="5dp"
+        android1:layout_marginTop="20dp"
+        android1:orientation="horizontal" 
+        android1:layout_centerHorizontal="true"
+        >
+
+        <RadioButton
+            android1:id="@+id/radio0"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:checked="true"
+            android1:text="Alarm" 
+            android1:textColor="#000000"
+            android1:textSize="20dp"/>
+
+        <RadioButton
+            android1:id="@+id/radio1"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="Save"
+            android1:textColor="#000000" 
+             android1:textSize="20dp"/>
+
+        <RadioButton
+            android1:id="@+id/radio2"
+             android1:textSize="20dp"
+            android1:layout_width="wrap_content"
+            android1:layout_height="wrap_content"
+            android1:text="Both"
+            android1:textColor="#000000" />
+    </RadioGroup>
+
+    <ImageView
+        android1:id="@+id/imageView1"
+        android1:layout_width="70dp"
+        android1:layout_height="70dp"
+        android1:layout_alignParentLeft="true"
+        android1:layout_alignParentTop="true"
+        android1:src="@drawable/icon" 
+        android1:scaleType="fitXY"
+        android1:background="@drawable/button"
+/>
+
+    <TextView
+        android1:id="@+id/textView3"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignParentBottom="true"
+        android1:layout_alignParentLeft="true"
+        android1:layout_marginBottom="20dp"
+        android1:textSize="20dp"
+        android1:textColor="#000000"
+        android1:padding="10dp"
+        android1:text=" Screenshots will be saved in \n SD card/Smart People Monitor folder" />
+
+    <TextView
+        android1:id="@+id/textView2"
+        android1:layout_width="fill_parent"
+        android1:layout_height="70dp"
+        android1:layout_alignParentTop="true"
+        android1:layout_toRightOf="@+id/imageView1"
+        android1:background="@drawable/button"
+        android1:gravity="center"
+        android1:padding="5dp"
+        android1:text="Smart People Monitoring"
+        android1:textColor="#FFFFFF"
+        android1:textSize="20dp"
+        android1:textStyle="bold" />
+
+    <TextView
+        android1:id="@+id/textView4"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignLeft="@+id/textView1"
+        android1:layout_below="@+id/radioGroup1"
+        android1:layout_marginTop="20dp"
+        android1:textColor="#000000"
+        android1:textSize="20dp"
+        android1:text="Enter the Threshold Limit" />
+
+    <EditText
+        android1:id="@+id/editText1"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_alignLeft="@+id/textView4"
+        android1:layout_centerVertical="true"
+        android1:ems="10" >
+
+        <requestFocus />
+    </EditText>
+
+    <TextView
+        android1:id="@+id/textView5"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_centerVertical="true"
+        android1:layout_toRightOf="@+id/textView4"
+        android1:text=" peoples"
+         android1:textColor="#000000"
+        android1:textSize="20dp" />
+
+    <Button
+        android1:id="@+id/button1"
+        android1:layout_width="wrap_content"
+        android1:layout_height="wrap_content"
+        android1:layout_below="@+id/editText1"
+        android1:layout_centerHorizontal="true"
+        android1:layout_marginTop="22dp"
+        android1:background="@drawable/button_selector"
+        android1:gravity="center"
+        android1:text="Start Monitoring"
+        android1:textColor="#FFFFFF"
+        android1:textSize="25dp" />
+   
+</RelativeLayout>
