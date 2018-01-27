@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.2"
+
+    defaultConfig {
+        applicationId "com.adsonik.surveillancecamera"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode = 500
+        versionName = "3.0.0"
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+
+    splits {
+
+        abi {
+            enable true
+            reset()
+            include "mips","mips64", "armeabi","arm64-v8a","x86_64", "armeabi-v7a", "x86"
+        }
+    }
+}
+
+
+ext.abiCodes = ['mips':1, 'mips64':2, 'armeabi':3, 'arm64-v8a':4, 'x86_64':5, 'armeabi-v7a':6, 'x86':7]
+
+import com.android.build.OutputFile
+
+// For each APK output variant, override versionCode with a combination of
+// ext.abiCodes * 100 + variant.versionCode. In this example, variant.versionCode
+// is equal to defaultConfig.versionCode. If you configure product flavors that
+// define their own versionCode, variant.versionCode uses that value instead.
+android.applicationVariants.all { variant ->
+
+    // Assigns a different version code for each output APK
+    // other than the universal APK.
+    variant.outputs.each { output ->
+
+        // Stores the value of ext.abiCodes that is associated with the ABI for this variant.
+        def baseAbiVersionCode =
+                // Determines the ABI for this variant and returns the mapped value.
+                project.ext.abiCodes.get(output.getFilter(OutputFile.ABI))
+
+        // Because abiCodes.get() returns null for ABIs that are not mapped by ext.abiCodes,
+        // the following code does not override the version code for universal APKs.
+        // However, because we want universal APKs to have the lowest version code,
+        // this outcome is desirable.
+        if (baseAbiVersionCode != null) {
+
+            // Assigns the new version code to versionCodeOverride, which changes the version code
+            // for only the output APK, not for the variant itself. Skipping this step simply
+            // causes Gradle to use the value of variant.versionCode for the APK.
+            output.versionCodeOverride =
+                    baseAbiVersionCode + variant.versionCode
+        }
+    }
+}
+
+
+dependencies {
+    compile 'com.android.support:support-v4:26.1.0'
+    compile project(':opencv')
+    compile project('::Android-Utils')
+    compile 'com.greysonparrelli.permiso:permiso:0.3.0'
+    implementation "android.arch.persistence.room:runtime:1.0.0"
+    implementation "android.arch.lifecycle:extensions:1.0.0"
+    annotationProcessor "android.arch.persistence.room:compiler:1.0.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.2.10"
+    compile 'com.jsibbold:zoomage:1.1.0'
+}

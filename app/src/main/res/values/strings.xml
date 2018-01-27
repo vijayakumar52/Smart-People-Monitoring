@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Surveillance Camera</string>
+    <string name="ui_start_monitoring">Start Monitoring</string>
+    <string name="toast_app_wont_work">Whoops! App won\'t work without this permission!</string>
+    <string name="ui_make_alarm">Enable Alarm</string>
+    <string name="ui_make_alarm_explanation">If enabled, the alarm goes off when it detects humans while monitoring.</string>
+    <string name="ui_choose_tone">Change</string>
+    <string name="ui_intruder_history">Monitoring History</string>
+    <string name="ui_tone">Alarm tone : </string>
+    <string name="ui_tone_name">Default.mp3</string>
+    <string name="ui_clear">Clear</string>
+    <string name="dialog_title_delete">Delete Image?</string>
+    <string name="dialog_content_delete">Are you sure you want to delete this photo</string>
+    <string name="dialot_ok">Ok</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="ui_no_of_people">No of People :</string>
+    <string name="ui_use_camera_in_landscape">Please use camera in landscape mode</string>
+</resources>
